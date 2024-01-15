@@ -14,11 +14,5 @@ int main() {
             cout<<"prime"<<endl;
             break;
         }
-    }
-    
-    
-    
-    
-    
-    
+    }   
     }

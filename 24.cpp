@@ -16,6 +16,4 @@ int main() {
         i++;
     }
     cout<<"anwer is "<<ans<<endl;
-    
-    
     }
