@@ -22,7 +22,7 @@ int binarysearch(int array[],int size, int key){
     return -1;
 };
 int main() {
-    int even[10]={ 4,6,8,9,10,12,15,17,10,0};
+    int even[10]={ 4,6,8,9,10,12,15,17,10,20};
     int odd[11]={1,3,5,7,9,11,13,15,17,19,21};
     int index1= binarysearch(even,10,15);
     int index2= binarysearch(odd,11,23);
