@@ -14,10 +14,6 @@ int reversearray(int arr[],int n){
     }
 };
 
-
-
-
-
 vector<int> findsumofarray(vector<int>&a,int n,vector<int>&b,int m){
     int i=n-1;
     int j=m-1;
