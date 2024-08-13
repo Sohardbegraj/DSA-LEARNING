@@ -25,14 +25,14 @@ void printLL(Node *head){
     }
     cout<<"NULL"<<endl;
 };
-void getlenght(Node *head){
+int getlenght(Node *head){
     Node *temp = head;
     int count=0;
     while(temp!=NULL){
         count++;
         temp=temp->next;
     }
-    cout<<"lenght is "<<count<<endl;
+    return count;
 };
 
 void insertAtHead(Node *&head,Node *&tail,int data){
@@ -60,6 +60,54 @@ void insertAtTail(Node *&head,Node *&tail,int data){
     tail=newNode;
     }
 }
+
+void deleteNode(Node *&head,Node *&tail,int position){
+    if (head == NULL) {
+        cout << "List is empty" << endl;
+        return;
+    }
+    int lenght=getlenght(head);
+    if(head==tail){
+        Node *temp=head;
+        delete temp;
+        head=NULL;
+        tail=NULL;
+        return;
+    }
+    if(position==1){
+        Node *temp = head;
+        head = head->next;
+        temp->next=NULL;
+        delete temp;
+        return;
+    }
+    else if(position==lenght){
+        Node *prev = head;
+        while (prev->next!=tail)
+        {
+            prev=prev->next;
+        }
+        prev->next=NULL;
+        delete tail;
+        tail=prev;
+        return;
+    }
+    else{
+        Node *prev = NULL;
+        Node *curr=head;
+        while(position!=1){
+            position--;
+            prev=curr;
+            curr=curr->next;
+
+        }
+        prev->next=curr->next;
+        curr->next=NULL;
+        delete curr;
+    }
+}
+
+
 int main(){
     Node *head = new Node(10);
     Node *tail = head;
@@ -69,6 +117,8 @@ int main(){
     insertAtTail(head,tail,50);
     insertAtTail(head,tail,60);
     insertAtHead(head,tail,0);
+    printLL(head);
+    deleteNode(head,tail,4);
     printLL(head);
 
 }
